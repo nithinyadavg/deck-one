@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Deck One — top view</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#3a3a3f}a:hover{color:#1d1d1f}
+</style>
+</helmet>
+<div style="width: 1600px; height: 1300px; box-sizing: border-box; padding: 72px 80px; background: #F3F3F1; font-family: Inter, system-ui, sans-serif; color: #1D1D1F; display: flex; flex-direction: column; gap: 48px">
+
+  <header style="display: flex; justify-content: space-between; align-items: flex-end; gap: 40px">
+    <div style="display: flex; flex-direction: column; gap: 12px">
+      <p style="margin: 0; font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #5C5C61">Concept · the deck for a Mac mini, or any board</p>
+      <h1 style="margin: 0; font-size: 64px; line-height: 1; font-weight: 700; letter-spacing: -0.03em">Deck One</h1>
+      <p style="margin: 0; font-size: 20px; line-height: 1.45; color: #4A4A4F; max-width: 860px">The thin-laptop keyboard and a properly usable trackpad in one light aluminium slab. A swappable spine on the back decides what it is: a wireless deck, a wired deck, or a computer with a board inside.</p>
+    </div>
+    <p style="margin: 0; font-size: 14px; color: #5C5C61; text-align: right; line-height: 1.5">Top view · 1 : 3.4 scale<br>{{finish}} · {{spine}} spine</p>
+  </header>
+
+  <div style="display: flex; gap: 56px; align-items: flex-start">
+
+    <section style="display: flex; flex-direction: column; gap: 14px">
+      <div style="display: flex; align-items: center; gap: 18px">
+
+        <div role="img" aria-label="Top view: a silver aluminium deck with a black laptop-style keyboard, a trackpad centred below it, and a removable spine module along the back edge" style="width: 912px; border-radius: 22px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 36px 70px -30px rgba(0,0,0,0.38), 0 10px 20px -12px rgba(0,0,0,0.25)">
+
+          <div style="height: {{spineH}}px; box-sizing: border-box; padding: 0 38px; background: linear-gradient(180deg, {{c.bodyTop}} 0%, {{c.spine}} 100%); box-shadow: 0 1px 0 {{c.rim}} inset; display: flex; align-items: center; justify-content: space-between">
+            <sc-if value="{{isCompute}}" hint-placeholder-val="{{ false }}">
+              <div style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 32px">
+                <div style="width: 300px; height: 120px; border-radius: 10px; background: repeating-linear-gradient(90deg, {{c.vent}} 0px, {{c.vent}} 2px, transparent 2px, transparent 7px); opacity: 0.9"></div>
+                <div style="width: 255px; height: 150px; box-sizing: border-box; border: 1.5px dashed {{c.mark}}; border-radius: 8px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 12px">
+                  <span style="font-size: 12px; line-height: 1.4; font-weight: 500; color: {{c.markText}}">Board bay under the lid<br>85 × 56 mm, standard mounting holes</span>
+                </div>
+                <div style="width: 200px; height: 120px; border-radius: 10px; background: repeating-linear-gradient(90deg, {{c.vent}} 0px, {{c.vent}} 2px, transparent 2px, transparent 7px); opacity: 0.9"></div>
+              </div>
+            </sc-if>
+            <sc-if value="{{isSlim}}" hint-placeholder-val="{{ true }}">
+              <div style="width: 100%; display: flex; align-items: center; justify-content: space-between">
+                <span style="font-size: 11px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: {{c.markText}}">{{spineLabel}}</span>
+                <span style="width: 6px; height: 6px; border-radius: 50%; background: {{c.led}}"></span>
+              </div>
+            </sc-if>
+          </div>
+
+          <div style="height: 2px; background: {{c.seam}}"></div>
+
+          <div style="height: 664px; box-sizing: border-box; padding: 30px 38px 20px; display: flex; flex-direction: column; align-items: center; gap: 16px; background: linear-gradient(180deg, {{c.bodyTop}} 0%, {{c.body}} 100%)">
+
+            <div style="width: 836px; box-sizing: border-box; padding: 8px; border-radius: 10px; background: {{c.well}}; box-shadow: 0 1px 2px rgba(0,0,0,0.16) inset; display: flex; flex-direction: column; gap: 7px">
+              <sc-for list="{{rows}}" as="row" hint-placeholder-count="6">
+                <div style="display: flex; gap: 7px; height: {{row.h}}px">
+                  <sc-for list="{{row.keys}}" as="k" hint-placeholder-count="14">
+
+                    <sc-if value="{{k.isKey}}" hint-placeholder-val="{{ true }}">
+                      <div style="width: {{k.w}}px; height: 100%; box-sizing: border-box; padding: 6px 7px; border-radius: 5px; background: {{c.key}}; box-shadow: {{c.keyShadow}}; display: flex; flex-direction: column; justify-content: {{k.jc}}; font-weight: 500">
+                        <sc-if value="{{k.hasTop}}" hint-placeholder-val="{{ false }}">
+                          <span style="align-self: {{k.topAlign}}; font-size: {{k.topFs}}px; line-height: 1; color: {{c.legend}}">{{k.top}}</span>
+                        </sc-if>
+                        <sc-if value="{{k.dot}}" hint-placeholder-val="{{ false }}">
+                          <span style="align-self: flex-start; width: 4px; height: 4px; border-radius: 50%; background: {{c.legend}}"></span>
+                        </sc-if>
+                        <span style="align-self: {{k.ai}}; font-size: {{k.fs}}px; line-height: 1; color: {{c.legend}}">{{k.l}}</span>
+                      </div>
+                    </sc-if>
+
+                    <sc-if value="{{k.isFn}}" hint-placeholder-val="{{ false }}">
+                      <div style="width: {{k.w}}px; height: 100%; box-sizing: border-box; border-radius: 5px; background: {{c.key}}; box-shadow: {{c.keyShadow}}; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; color: {{c.legend}}">
+                        <sc-if value="{{k.sunS}}" hint-placeholder-val="{{ false }}">
+                          <svg aria-hidden="true" width="14" height="11" viewBox="0 0 16 12" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><circle cx="8" cy="6" r="1.8"></circle><path d="M8 1.6v1M8 9.4v1M3.6 6h1M11.4 6h1M4.9 2.9l.7.7M10.4 8.4l.7.7M4.9 9.1l.7-.7M10.4 3.6l.7-.7"></path></svg>
+                        </sc-if>
+                        <sc-if value="{{k.sunL}}" hint-placeholder-val="{{ false }}">
+                          <svg aria-hidden="true" width="14" height="11" viewBox="0 0 16 12" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><circle cx="8" cy="6" r="2.4"></circle><path d="M8 .6v2M8 9.4v2M2.6 6h2M11.4 6h2M4.2 2.2l1.3 1.3M10.5 8.5l1.3 1.3M4.2 9.8l1.3-1.3M10.5 3.5l1.3-1.3"></path></svg>
+                        </sc-if>
+                        <sc-if value="{{k.mission}}" hint-placeholder-val="{{ false }}">
+                          <svg aria-hidden="true" width="14" height="11" viewBox="0 0 16 12" fill="none" stroke="currentColor" stroke-width="1.1"><rect x="1.5" y="1.5" width="5.5" height="3.6" rx=".6"></rect><rect x="9" y="1.5" width="5.5" height="3.6" rx=".6"></rect><rect x="3.5" y="6.9" width="9" height="3.6" rx=".6"></rect></svg>
+                        </sc-if>
+                        <sc-if value="{{k.launch}}" hint-placeholder-val="{{ false }}">
+                          <svg aria-hidden="true" width="14" height="11" viewBox="0 0 16 12" fill="none" stroke="currentColor" stroke-width="1.1"><rect x="2" y="2" width="3" height="3" rx=".5"></rect><rect x="6.5" y="2" width="3" height="3" rx=".5"></rect><rect x="11" y="2" width="3" height="3" rx=".5"></rect><rect x="2" y="7" width="3" height="3" rx=".5"></rect><rect x="6.5" y="7" width="3" height="3" rx=".5"></rect><rect x="11" y="7" width="3" height="3" rx=".5"></rect></svg>
+                        </sc-if>
+                        <sc-if value="{{k.kbdDown}}" hint-placeholder-val="{{ false }}">
+                          <svg aria-hidden="true" width="14" height="11" viewBox="0 0 16 12" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><path d="M5 9a3 3 0 0 1 6 0" stroke-dasharray="0.1 1.9"></path><path d="M4 10.5h8"></path></svg>
+                        </sc-if>
+                        <sc-if value="{{k.kbdUp}}" hint-placeholder-val="{{ false }}">
+                          <svg aria-hidden="true" width="14" height="11" viewBox="0 0 16 12" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><path d="M3.5 9a4.5 4.5 0 0 1 9 0" stroke-dasharray="0.1 1.9"></path><path d="M5.5 9a2.5 2.5 0 0 1 5 0"></path><path d="M3 10.5h10"></path></svg>
+                        </sc-if>
+                        <sc-if value="{{k.rew}}" hint-placeholder-val="{{ false }}">
+                          <svg aria-hidden="true" width="14" height="11" viewBox="0 0 16 12" fill="currentColor"><path d="M8 2.5 3 6l5 3.5zM14 2.5 9 6l5 3.5z"></path></svg>
+                        </sc-if>
+                        <sc-if value="{{k.play}}" hint-placeholder-val="{{ false }}">
+                          <svg aria-hidden="true" width="14" height="11" viewBox="0 0 16 12" fill="currentColor"><path d="M2.5 2.5 7.5 6l-5 3.5z"></path><rect x="9.5" y="2.5" width="1.6" height="7"></rect><rect x="12.4" y="2.5" width="1.6" height="7"></rect></svg>
+                        </sc-if>
+                        <sc-if value="{{k.ff}}" hint-placeholder-val="{{ false }}">
+                          <svg aria-hidden="true" width="14" height="11" viewBox="0 0 16 12" fill="currentColor"><path d="M2 2.5 7 6l-5 3.5zM8 2.5 13 6l-5 3.5z"></path></svg>
+                        </sc-if>
+                        <sc-if value="{{k.mute}}" hint-placeholder-val="{{ false }}">
+                          <svg aria-hidden="true" width="14" height="11" viewBox="0 0 16 12" fill="currentColor"><path d="M3 4.5h2.4L8.5 2v8L5.4 7.5H3z"></path></svg>
+                        </sc-if>
+                        <sc-if value="{{k.volD}}" hint-placeholder-val="{{ false }}">
+                          <svg aria-hidden="true" width="14" height="11" viewBox="0 0 16 12"><path d="M2 4.5h2.4L7.5 2v8L4.4 7.5H2z" fill="currentColor"></path><path d="M9.5 4.3a2.4 2.4 0 0 1 0 3.4" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"></path></svg>
+                        </sc-if>
+                        <sc-if value="{{k.volU}}" hint-placeholder-val="{{ false }}">
+                          <svg aria-hidden="true" width="14" height="11" viewBox="0 0 16 12"><path d="M1.5 4.5h2.4L7 2v8L3.9 7.5H1.5z" fill="currentColor"></path><path d="M9 4.3a2.4 2.4 0 0 1 0 3.4M10.9 2.6a4.8 4.8 0 0 1 0 6.8M12.8 1a7 7 0 0 1 0 10" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"></path></svg>
+                        </sc-if>
+                        <span style="font-size: 7.5px; line-height: 1; font-weight: 500">{{k.l}}</span>
+                      </div>
+                    </sc-if>
+
+                    <sc-if value="{{k.isArrows}}" hint-placeholder-val="{{ false }}">
+                      <div style="width: {{k.w}}px; height: 100%; display: flex; gap: 7px; align-items: flex-end">
+                        <div style="width: {{unit}}px; height: 23px; border-radius: 5px; background: {{c.key}}; box-shadow: {{c.keyShadow}}; display: flex; align-items: center; justify-content: center; color: {{c.legend}}">
+                          <svg aria-hidden="true" width="7" height="7" viewBox="0 0 8 8" fill="currentColor"><path d="M1.5 4 6.5 1v6z"></path></svg>
+                        </div>
+                        <div style="width: {{unit}}px; height: 100%; display: flex; flex-direction: column; gap: 4px">
+                          <div style="height: 23px; border-radius: 5px; background: {{c.key}}; box-shadow: {{c.keyShadow}}; display: flex; align-items: center; justify-content: center; color: {{c.legend}}">
+                            <svg aria-hidden="true" width="7" height="7" viewBox="0 0 8 8" fill="currentColor"><path d="M4 1.5 7 6.5H1z"></path></svg>
+                          </div>
+                          <div style="height: 23px; border-radius: 5px; background: {{c.key}}; box-shadow: {{c.keyShadow}}; display: flex; align-items: center; justify-content: center; color: {{c.legend}}">
+                            <svg aria-hidden="true" width="7" height="7" viewBox="0 0 8 8" fill="currentColor"><path d="M4 6.5 1 1.5h6z"></path></svg>
+                          </div>
+                        </div>
+                        <div style="width: {{unit}}px; height: 23px; border-radius: 5px; background: {{c.key}}; box-shadow: {{c.keyShadow}}; display: flex; align-items: center; justify-content: center; color: {{c.legend}}">
+                          <svg aria-hidden="true" width="7" height="7" viewBox="0 0 8 8" fill="currentColor"><path d="M6.5 4 1.5 1v6z"></path></svg>
+                        </div>
+                      </div>
+                    </sc-if>
+
+                  </sc-for>
+                </div>
+              </sc-for>
+            </div>
+
+            <div style="width: 420px; height: 270px; border-radius: 12px; background: {{c.pad}}; box-shadow: 0 0 0 1px {{c.padEdge}} inset, 0 1px 2px rgba(0,0,0,0.06) inset"></div>
+          </div>
+        </div>
+
+        <div style="width: 70px; height: {{totalH}}px; display: flex; align-items: center; gap: 10px">
+          <div style="width: 1px; height: 100%; background: #9A9AA0"></div>
+          <span style="font-size: 14px; font-weight: 600; color: #4A4A4F; white-space: nowrap">{{depthMm}} mm</span>
+        </div>
+      </div>
+
+      <div style="width: 912px; display: flex; align-items: center; gap: 14px">
+        <div style="flex: 1; height: 1px; background: #9A9AA0"></div>
+        <span style="font-size: 14px; font-weight: 600; color: #4A4A4F">304 mm wide · deck 4.5 – 11 mm thick</span>
+        <div style="flex: 1; height: 1px; background: #9A9AA0"></div>
+      </div>
+    </section>
+
+    <section style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 32px; padding-top: 8px">
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <h2 style="margin: 0; font-size: 20px; font-weight: 600">Made to sit with a Mac mini</h2>
+        <p style="margin: 0; font-size: 16px; line-height: 1.5; color: #4A4A4F">Same bead-blasted silver aluminium and soft corners, so the two look like one set on the desk.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <h2 style="margin: 0; font-size: 20px; font-weight: 600">A trackpad you can live on</h2>
+        <p style="margin: 0; font-size: 16px; line-height: 1.5; color: #4A4A4F">140 × 90 mm glass: room for four-finger swipes and long drags, without making the deck too deep to carry.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <h2 style="margin: 0; font-size: 20px; font-weight: 600">Laptop layout, square fingerprint key</h2>
+        <p style="margin: 0; font-size: 16px; line-height: 1.5; color: #4A4A4F">Half-height function row with media keys, inverted-T arrows, and a flat opaque key at top right.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <h2 style="margin: 0; font-size: 20px; font-weight: 600">Swap the spine, change the job</h2>
+        <p style="margin: 0; font-size: 16px; line-height: 1.5; color: #4A4A4F">The back edge is a magnetic connector carrying power and USB. Clip on a battery, a cable, or a board bay for a Raspberry Pi-size computer.</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px">
+        <h2 style="margin: 0; font-size: 20px; font-weight: 600">Light enough to carry</h2>
+        <p style="margin: 0; font-size: 16px; line-height: 1.5; color: #4A4A4F">Target under 500 g with the battery spine. Fits a 13-inch laptop sleeve.</p>
+      </div>
+    </section>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"finish":{"editor":"enum","options":["Silver","Space Black","Space Grey","Gold"],"default":"Silver"},"spine":{"editor":"enum","options":["Battery","Cable","Compute"],"default":"Battery"},"$preview":{"width":1600,"height":1300}}'>
+class Component extends DCLogic {
+  renderVals() {
+    var finish = this.props.finish ?? 'Silver';
+    var spine = this.props.spine ?? 'Battery';
+    var u = 50, g = 7, p = u + g;
+    var W = function (n) { return Math.round((n * p - g) * 10) / 10; };
+    var rowW = W(14.5);
+    var fnW = Math.round(((rowW - 13 * g) / 14) * 10) / 10;
+
+    var keysDark = {
+      key: '#1B1B1D', legend: '#ECECEF',
+      keyShadow: '0 1px 0 rgba(0,0,0,0.5), 0 0 0 0.5px rgba(255,255,255,0.05) inset'
+    };
+    var finishes = {
+      'Silver':      { bodyTop: '#E6E7E9', body: '#D0D1D4', spine: '#D6D7DA', rim: 'rgba(255,255,255,0.8)', well: '#C2C3C7', pad: '#DCDDE0', padEdge: 'rgba(0,0,0,0.12)', seam: '#A9AAAE', vent: 'rgba(0,0,0,0.22)', mark: '#8A8B90', markText: '#4A4B50', led: '#4CB46A' },
+      'Space Black': { bodyTop: '#3A3B3E', body: '#28292B', spine: '#2E2F31', rim: 'rgba(255,255,255,0.10)', well: '#1F2022', pad: '#323336', padEdge: 'rgba(255,255,255,0.08)', seam: '#151516', vent: 'rgba(0,0,0,0.55)', mark: '#6E6F74', markText: '#C9CACE', led: '#4CB46A' },
+      'Space Grey':  { bodyTop: '#8E8F93', body: '#76777B', spine: '#7E7F83', rim: 'rgba(255,255,255,0.25)', well: '#68696D', pad: '#808185', padEdge: 'rgba(0,0,0,0.18)', seam: '#55565A', vent: 'rgba(0,0,0,0.35)', mark: '#3E3F43', markText: '#1F2023', led: '#4CB46A' },
+      'Gold':        { bodyTop: '#F3DDCB', body: '#E6C8B0', spine: '#EAD0BB', rim: 'rgba(255,255,255,0.7)', well: '#D9B99F', pad: '#EBD3C0', padEdge: 'rgba(120,80,50,0.20)', seam: '#C3A189', vent: 'rgba(90,60,40,0.25)', mark: '#9C7C66', markText: '#5A4232', led: '#4CB46A' }
+    };
+    var c = Object.assign({}, finishes[finish] || finishes['Silver'], keysDark);
+
+    // a = label position: c centre, bl bottom-left, br bottom-right, ml middle-left
+    var key = function (l, w, a, top, size, topSide) {
+      a = a || 'c';
+      var hasTop = !!top;
+      return {
+        isKey: true, isFn: false, isArrows: false, dot: false,
+        l: l, w: typeof w === 'number' && w < 20 ? W(w) : w,
+        jc: hasTop ? 'space-between' : (a === 'c' || a === 'ml' ? 'center' : 'flex-end'),
+        ai: a === 'c' ? 'center' : (a === 'br' ? 'flex-end' : 'flex-start'),
+        fs: size || (a === 'c' ? 15 : 10),
+        hasTop: hasTop, top: top || '',
+        topAlign: topSide || 'center',
+        topFs: a === 'c' ? 11 : 12
+      };
+    };
+    var pairs = function (list) {
+      return list.map(function (q) { return key(q[1], 1, 'c', q[0], 13); });
+    };
+    var letters = function (s) {
+      return s.split('').map(function (ch) { return key(ch, 1, 'c'); });
+    };
+    var fn = function (label, icon) {
+      var k = { isKey: false, isFn: true, isArrows: false, w: fnW, l: label };
+      ['sunS','sunL','mission','launch','kbdDown','kbdUp','rew','play','ff','mute','volD','volU'].forEach(function (n) { k[n] = (n === icon); });
+      return k;
+    };
+
+    var esc = key('esc', fnW, 'ml', null, 10);
+    var touch = key('', fnW, 'c');
+    var fnRow = [esc,
+      fn('F1','sunS'), fn('F2','sunL'), fn('F3','mission'), fn('F4','launch'),
+      fn('F5','kbdDown'), fn('F6','kbdUp'), fn('F7','rew'), fn('F8','play'),
+      fn('F9','ff'), fn('F10','mute'), fn('F11','volD'), fn('F12','volU'),
+      touch];
+
+    var numRow = pairs([['~','`'],['!','1'],['@','2'],['#','3'],['$','4'],['%','5'],['^','6'],['&','7'],['*','8'],['(','9'],[')','0'],['—','–'],['+','=']]);
+    numRow.push(key('delete', 1.5, 'br'));
+
+    var tabRow = [key('tab', 1.5, 'bl')].concat(letters('QWERTYUIOP'), pairs([['{','['],['}',']'],['|','\\']]));
+
+    var caps = key('caps lock', 1.75, 'bl'); caps.dot = true; caps.jc = 'space-between';
+    var capsRow = [caps].concat(letters('ASDFGHJKL'), pairs([[':',';'],['"','\'']]), [key('return', 1.75, 'br')]);
+
+    var shiftRow = [key('shift', 2.25, 'bl')].concat(letters('ZXCVBNM'), pairs([['<',','],['>','.'],['?','/']]), [key('shift', 2.25, 'br')]);
+
+    var bottomRow = [
+      key('fn', 1, 'bl'),
+      key('control', 1, 'br', '^', null, 'flex-end'),
+      key('option', 1, 'br', '⌥', null, 'flex-end'),
+      key('command', 1.25, 'br', '⌘', null, 'flex-end'),
+      key('', 5, 'c'),
+      key('command', 1.25, 'bl', '⌘', null, 'flex-start'),
+      key('option', 1, 'bl', '⌥', null, 'flex-start'),
+      { isKey: false, isFn: false, isArrows: true, w: W(3) }
+    ];
+
+    var spineH = spine === 'Compute' ? 198 : (spine === 'Cable' ? 30 : 42);
+    var totalH = spineH + 2 + 664;
+
+    return {
+      c: c,
+      unit: u,
+      finish: finish,
+      spine: spine,
+      isCompute: spine === 'Compute',
+      isSlim: spine !== 'Compute',
+      spineLabel: spine === 'Cable' ? 'Cable spine · USB-C' : 'Battery spine · Bluetooth',
+      spineH: spineH,
+      totalH: totalH,
+      depthMm: Math.round(totalH / 3),
+      rows: [
+        { h: 27, keys: fnRow },
+        { h: 50, keys: numRow },
+        { h: 50, keys: tabRow },
+        { h: 50, keys: capsRow },
+        { h: 50, keys: shiftRow },
+        { h: 50, keys: bottomRow }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

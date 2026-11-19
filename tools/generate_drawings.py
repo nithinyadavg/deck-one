@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Generate the Deck One keyboard's reference drawings and layout data.
 
-Everything is in millimetres. Run from the keyboard/ folder:
+Everything is in millimetres. Run from the repo root:
 
     python3 tools/generate_drawings.py
 
@@ -11,8 +11,8 @@ Outputs:
     drawings/top-view-standard.svg   standard front fascia (140 x 90 trackpad)
     drawings/top-view-big-hands.svg  big-hands fascia (smaller, lower trackpad + ridge)
     drawings/top-view-wrist-rest.svg wrist-rest fascia (no trackpad)
-    drawings/underside.svg           base: module bays, battery, feet, latches
-    drawings/side-profile.svg        wedge, fascia seam, bay depth
+    drawings/underside.svg           base: battery cells, feet, fascia latches, USB-C
+    drawings/side-profile.svg        the flat 5 mm slab and the fascia seam
 
 The SVGs are drawn at true scale (1 SVG unit = 1 mm) with width/height in mm,
 so printing them at 100 % gives a 1:1 paper template.
@@ -44,7 +44,7 @@ DECK_W = 304.0
 DECK_D = 221.0
 DECK_R = 7.3
 WELL_TOP = 10.0
-FRONT_T, BACK_T = 4.5, 11.0                   # deck wedge thickness
+THICK = 5.0                                   # flat slab, like an iPhone Fold opened out
 
 # The deck is two parts joined by a seam: the keyboard frame (back) and a
 # swappable front fascia (palm rest + trackpad).
@@ -61,11 +61,10 @@ FASCIAS = {
                    "title": "Wrist-rest fascia · no trackpad"},
 }
 
-# Underside module bays (seen from below), mm from the back edge / left edge
-BAY_W, BAY_D, BAY_T = 120.0, 50.0, 4.0
-BAY_Y = 12.0
-BAY_XS = (22.0, DECK_W - 22.0 - BAY_W)
-BATTERY = (22.0, 68.0, DECK_W - 44.0, 48.0)   # x, y, w, h of the built-in battery
+# Battery: two flat pouch cells in the palm rest, either side of the trackpad
+# (x, y from the left edge / from the fascia seam, w, h)
+CELLS = ((8.0, 8.0, 66.0, 80.0), (DECK_W - 74.0, 8.0, 66.0, 80.0))
+CELL_T = 3.0
 
 # ---------------------------------------------------------------- key list
 def key(label, units=1.0, align="c", top=None, kind="key", width=None):
@@ -239,7 +238,7 @@ def top_view(fascia):
     W = DECK_W + 2 * m + 24
     H = DECK_D + 2 * m + 14
     ox, oy = m, m
-    b = [text(ox, 12, f"Deck One keyboard · top view · {f['title']}", 4.4, INK, "start", 700),
+    b = [text(ox, 12, f"Deck One · top view · {f['title']}", 4.4, INK, "start", 700),
          text(ox, 18, "True scale: 1 unit = 1 mm. Print at 100 % for a 1:1 template.", 3.0, MUTED, "start"),
          deck_outline(ox, oy)]
     # seam between keyboard frame and front fascia
@@ -270,7 +269,7 @@ def top_view(fascia):
         b.append(text(ox + DECK_W / 2, sy + FASCIA_D / 2 + 1, "plain palm rest · use with a mouse or external trackpad", 3.0, MUTED))
     b.append(hdim(ox, ox + DECK_W, oy + DECK_D + 12, "304 mm"))
     b.append(vdim(ox + DECK_W + 10, oy, oy + DECK_D, "221 mm"))
-    return svg_doc(round(W, 1), round(H, 1), "\n".join(b), f"Deck One keyboard top view, {fascia} fascia")
+    return svg_doc(round(W, 1), round(H, 1), "\n".join(b), f"Deck One top view, {fascia} fascia")
 
 
 def underside():
@@ -278,57 +277,50 @@ def underside():
     W = DECK_W + 2 * m + 24
     H = DECK_D + 2 * m + 14
     ox, oy = m, m
-    b = [text(ox, 12, "Deck One keyboard · underside (seen from below, back edge at top)", 4.4, INK, "start", 700),
-         text(ox, 18, "True scale, mm. Bays are flush, with magnetic covers; the deck works with both bays empty.", 3.0, MUTED, "start"),
+    b = [text(ox, 12, "Deck One · underside (seen from below, back edge at top)", 4.4, INK, "start", 700),
+         text(ox, 18, "True scale, mm. A flat 5 mm slab: battery in the palm rest, everything else under the keys.", 3.0, MUTED, "start"),
          deck_outline(ox, oy, "#D7D8DB")]
-    for i, bx in enumerate(BAY_XS):
-        x, y = ox + bx, oy + BAY_Y
-        b.append(f'<rect x="{x}" y="{y}" width="{BAY_W}" height="{BAY_D}" rx="3" fill="#C9CACE" stroke="#8A8A90" stroke-width="0.4"/>')
-        for p in range(6):
-            b.append(f'<circle cx="{x + BAY_W/2 - 12.5 + p*5:.2f}" cy="{y + 5}" r="0.9" fill="#B08D57"/>')
-        b.append(text(x + BAY_W / 2, y + BAY_D / 2 + 0.5, f"Bay {'AB'[i]}", 4.0, INK, weight=700))
-        b.append(text(x + BAY_W / 2, y + BAY_D / 2 + 6, "120 × 50 × 4 mm · 6 pogo pins", 2.6, MUTED))
-    bx, by, bw, bh = BATTERY
-    b.append(f'<rect x="{ox+bx}" y="{oy+by}" width="{bw}" height="{bh}" rx="3" fill="none" stroke="{DIM}" stroke-width="0.4" stroke-dasharray="2 1.4"/>')
-    b.append(text(ox + bx + bw / 2, oy + by + bh / 2 + 1, "built-in battery, inside the frame · 260 × 48 × 3.5 mm", 2.8, MUTED))
+    b.append(text(ox + DECK_W / 2, oy + FRAME_D / 2, "one-piece base · keys, controller and radio above", 3.0, MUTED))
     sy = oy + FRAME_D
-    b.append(f'<line x1="{ox}" y1="{sy}" x2="{ox+DECK_W}" y2="{sy}" stroke="#8A8A90" stroke-width="0.5"/>')
-    for lx in (70.0, DECK_W - 70.0):
-        b.append(f'<rect x="{ox+lx-9}" y="{sy+5}" width="18" height="4" rx="2" fill="#A9AAAE"/>')
-    b.append(text(ox + DECK_W / 2, sy + 8.2, "fascia release latches", 2.6, MUTED))
-    for fx, fy in ((14, 14), (DECK_W - 14, 14), (14, DECK_D - 14), (DECK_W - 14, DECK_D - 14)):
-        b.append(f'<circle cx="{ox+fx}" cy="{oy+fy}" r="5" fill="#9A9BA0"/>')
-    b.append(text(ox + DECK_W - 14, oy + DECK_D - 22, "rubber feet ×4", 2.6, MUTED, "end"))
-    # ports on the back edge, drawn as notches (mirrored: seen from below)
+    for lx in (100.0, DECK_W - 100.0):
+        b.append(f'<rect x="{ox+lx-9}" y="{sy+3}" width="18" height="4" rx="2" fill="#A9AAAE"/>')
+    b.append(text(ox + DECK_W / 2, sy + 6.2, "palm-rest plate release latches", 2.6, MUTED))
+    for cx, cy, cw, ch in CELLS:
+        b.append(f'<rect x="{ox+cx}" y="{sy+cy}" width="{cw}" height="{ch}" rx="3" fill="none" stroke="{DIM}" stroke-width="0.4" stroke-dasharray="2 1.4"/>')
+        b.append(text(ox + cx + cw / 2, sy + cy + ch / 2, "battery cell", 2.8, MUTED))
+        b.append(text(ox + cx + cw / 2, sy + cy + ch / 2 + 4.5, f"{cw:.0f} × {ch:.0f} × {CELL_T:.0f} mm", 2.4, MUTED))
+    for fx, fy in ((14, 14), (DECK_W - 14, 14), (90, DECK_D - 10), (DECK_W - 90, DECK_D - 10)):
+        b.append(f'<circle cx="{ox+fx}" cy="{oy+fy}" r="4" fill="#9A9BA0"/>')
+    b.append(text(ox + DECK_W / 2, oy + DECK_D - 9, "rubber feet ×4", 2.6, MUTED))
     b.append(f'<rect x="{ox+DECK_W-40}" y="{oy-1.2}" width="9" height="2.4" rx="1.2" fill="#5A5B5F"/>')
     b.append(text(ox + DECK_W - 35.5, oy - 3, "USB-C", 2.4, MUTED))
     b.append(f'<rect x="{ox+30}" y="{oy-1}" width="7" height="2" rx="0.6" fill="#5A5B5F"/>')
     b.append(text(ox + 33.5, oy - 3, "power", 2.4, MUTED))
     b.append(hdim(ox, ox + DECK_W, oy + DECK_D + 12, "304 mm"))
     b.append(vdim(ox + DECK_W + 10, oy, oy + DECK_D, "221 mm"))
-    return svg_doc(round(W, 1), round(H, 1), "\n".join(b), "Deck One keyboard underside")
+    return svg_doc(round(W, 1), round(H, 1), "\n".join(b), "Deck One underside")
 
 
 def side_profile():
     m = 20.0
-    W = DECK_D * 1.0 + 2 * m + 40
-    H = 80.0
-    b = [text(m, 12, "Deck One keyboard · side profile (thickness drawn 2× for clarity)", 4.4, INK, "start", 700)]
-    base = 58.0
+    v = 4.0  # thickness drawn 4x so 5 mm is readable
+    W = DECK_D + 2 * m + 20
+    H = 70.0
+    b = [text(m, 12, "Deck One · side profile (thickness drawn 4× for clarity)", 4.4, INK, "start", 700)]
+    base = 48.0
     x0 = m
-    ft, bt = FRONT_T * 2, BACK_T * 2   # 2x vertical exaggeration
-    b.append(f'<polygon points="{x0},{base} {x0},{base-ft} {x0+DECK_D},{base-bt} {x0+DECK_D},{base}" fill="url(#alu)" stroke="#A9AAAE" stroke-width="0.25"/>')
+    t = THICK * v
+    b.append(f'<rect x="{x0}" y="{base-t}" width="{DECK_D}" height="{t}" rx="2" fill="url(#alu)" stroke="#A9AAAE" stroke-width="0.25"/>')
     seam_x = x0 + FASCIA_D
-    seam_t = (FRONT_T + (BACK_T - FRONT_T) * FASCIA_D / DECK_D) * 2
-    b.append(f'<line x1="{seam_x}" y1="{base}" x2="{seam_x}" y2="{base-seam_t}" stroke="#7E7F84" stroke-width="0.4"/>')
-    bay_x1 = x0 + DECK_D - BAY_Y - BAY_D
-    b.append(f'<rect x="{bay_x1}" y="{base - BAY_T*2}" width="{BAY_D}" height="{BAY_T*2}" fill="none" stroke="{DIM}" stroke-width="0.35" stroke-dasharray="1.5 1"/>')
-    b.append(text(bay_x1 + BAY_D / 2, base + 5, "module bay, 4 mm", 2.6, MUTED))
-    b.append(text(x0, base + 5, "front 4.5 mm", 2.6, MUTED, "start"))
-    b.append(text(seam_x, base + 5, f"fascia seam ({seam_t/2:.1f} mm)", 2.6, MUTED))
-    b.append(text(x0 + DECK_D, base + 11, "back 11 mm", 2.6, MUTED, "end"))
-    b.append(text(x0 + DECK_D / 2, 24, "← palm rest / front fascia · 99 mm | keyboard frame · 122 mm →", 2.8, MUTED))
-    return svg_doc(round(W, 1), round(H, 1), "\n".join(b), "Deck One keyboard side profile")
+    b.append(f'<line x1="{seam_x}" y1="{base}" x2="{seam_x}" y2="{base-t}" stroke="#7E7F84" stroke-width="0.4"/>')
+    for fx in (x0 + 10, x0 + DECK_D - 14):
+        b.append(f'<rect x="{fx}" y="{base}" width="6" height="2" rx="1" fill="#9A9BA0"/>')
+    b.append(text(x0 + FASCIA_D / 2, base - t - 3, "palm rest / front fascia · 99 mm", 2.8, MUTED))
+    b.append(text(seam_x + FRAME_D / 2, base - t - 3, "keyboard frame · 122 mm", 2.8, MUTED))
+    b.append(text(x0, base + 8, "front", 2.6, MUTED, "start"))
+    b.append(text(x0 + DECK_D, base + 8, "back", 2.6, MUTED, "end"))
+    b.append(text(x0 + DECK_D / 2, base + 8, "flat, 5 mm thick end to end (about the iPhone Fold opened out)", 2.8, MUTED))
+    return svg_doc(round(W, 1), round(H, 1), "\n".join(b), "Deck One side profile")
 
 
 def main():
@@ -356,7 +348,7 @@ def main():
         f.write(underside())
     with open(os.path.join(ROOT, "drawings", "side-profile.svg"), "w") as f:
         f.write(side_profile())
-    print(f"{len(keys)} keys · block {ROW_W:.1f} × {KEYS_H:.1f} mm · fascia {FASCIA_D:.0f} mm deep")
+    print(f"{len(keys)} keys · block {ROW_W:.1f} × {KEYS_H:.1f} mm · fascia {FASCIA_D:.0f} mm · {THICK} mm thick")
 
 
 if __name__ == "__main__":

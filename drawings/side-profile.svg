@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="281.0mm" height="70.0mm" viewBox="0 0 281.0 70.0" role="img" aria-label="Deck One side profile">
+<title>Deck One side profile</title>
+<defs><linearGradient id="alu" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E6E7E9"/><stop offset="1" stop-color="#D0D1D4"/></linearGradient></defs>
+<rect width="281.0" height="70.0" fill="#FFFFFF"/>
+<text x="20.00" y="12.00" font-size="4.4" fill="#1D1D1F" text-anchor="start" font-weight="700" font-family="Inter, Helvetica, Arial, sans-serif">Deck One · side profile (thickness drawn 4× for clarity)</text>
+<rect x="20.0" y="28.0" width="221.0" height="20.0" rx="2" fill="url(#alu)" stroke="#A9AAAE" stroke-width="0.25"/>
+<line x1="119.0" y1="48.0" x2="119.0" y2="28.0" stroke="#7E7F84" stroke-width="0.4"/>
+<rect x="30.0" y="48.0" width="6" height="2" rx="1" fill="#9A9BA0"/>
+<rect x="227.0" y="48.0" width="6" height="2" rx="1" fill="#9A9BA0"/>
+<text x="69.50" y="25.00" font-size="2.8" fill="#5C5C61" text-anchor="middle" font-weight="500" font-family="Inter, Helvetica, Arial, sans-serif">palm rest / front fascia · 99 mm</text>
+<text x="180.00" y="25.00" font-size="2.8" fill="#5C5C61" text-anchor="middle" font-weight="500" font-family="Inter, Helvetica, Arial, sans-serif">keyboard frame · 122 mm</text>
+<text x="20.00" y="56.00" font-size="2.6" fill="#5C5C61" text-anchor="start" font-weight="500" font-family="Inter, Helvetica, Arial, sans-serif">front</text>
+<text x="241.00" y="56.00" font-size="2.6" fill="#5C5C61" text-anchor="end" font-weight="500" font-family="Inter, Helvetica, Arial, sans-serif">back</text>
+<text x="130.50" y="56.00" font-size="2.8" fill="#5C5C61" text-anchor="middle" font-weight="500" font-family="Inter, Helvetica, Arial, sans-serif">flat, 5 mm thick end to end (about the iPhone Fold opened out)</text>
+</svg>

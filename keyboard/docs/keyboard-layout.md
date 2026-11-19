@@ -35,6 +35,14 @@ The arrow cluster is an inverted T: left and right are full 1 u wide and half he
 | F12 | speaker, three waves | volume up |
 | top right | none | fingerprint reader, or lock/power where no reader is fitted |
 
+## fn combinations
+
+| Combination | Action |
+|---|---|
+| fn + esc | lock / unlock the trackpad (indicator light on while locked) |
+| fn + 1 / 2 / 3 | switch between the three paired Bluetooth devices |
+| fn + F1–F12 | standard F1–F12 instead of the media actions (or the other way round, set in firmware) |
+
 ## Legends
 
 - Letters: one centred legend.

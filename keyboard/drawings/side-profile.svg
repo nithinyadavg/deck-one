@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="301.0mm" height="80.0mm" viewBox="0 0 301.0 80.0" role="img" aria-label="Deck One keyboard side profile">
+<title>Deck One keyboard side profile</title>
+<defs><linearGradient id="alu" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E6E7E9"/><stop offset="1" stop-color="#D0D1D4"/></linearGradient></defs>
+<rect width="301.0" height="80.0" fill="#FFFFFF"/>
+<text x="20.00" y="12.00" font-size="4.4" fill="#1D1D1F" text-anchor="start" font-weight="700" font-family="Inter, Helvetica, Arial, sans-serif">Deck One keyboard · side profile (thickness drawn 2× for clarity)</text>
+<polygon points="20.0,58.0 20.0,49.0 241.0,36.0 241.0,58.0" fill="url(#alu)" stroke="#A9AAAE" stroke-width="0.25"/>
+<line x1="119.0" y1="58.0" x2="119.0" y2="43.17647058823529" stroke="#7E7F84" stroke-width="0.4"/>
+<rect x="179.0" y="50.0" width="50.0" height="8.0" fill="none" stroke="#8A8A90" stroke-width="0.35" stroke-dasharray="1.5 1"/>
+<text x="204.00" y="63.00" font-size="2.6" fill="#5C5C61" text-anchor="middle" font-weight="500" font-family="Inter, Helvetica, Arial, sans-serif">module bay, 4 mm</text>
+<text x="20.00" y="63.00" font-size="2.6" fill="#5C5C61" text-anchor="start" font-weight="500" font-family="Inter, Helvetica, Arial, sans-serif">front 4.5 mm</text>
+<text x="119.00" y="63.00" font-size="2.6" fill="#5C5C61" text-anchor="middle" font-weight="500" font-family="Inter, Helvetica, Arial, sans-serif">fascia seam (7.4 mm)</text>
+<text x="241.00" y="69.00" font-size="2.6" fill="#5C5C61" text-anchor="end" font-weight="500" font-family="Inter, Helvetica, Arial, sans-serif">back 11 mm</text>
+<text x="130.50" y="24.00" font-size="2.8" fill="#5C5C61" text-anchor="middle" font-weight="500" font-family="Inter, Helvetica, Arial, sans-serif">← palm rest / front fascia · 99 mm | keyboard frame · 122 mm →</text>
+</svg>

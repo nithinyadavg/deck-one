@@ -15,15 +15,15 @@ body{margin:0}
 a{color:#3a3a3f}a:hover{color:#1d1d1f}
 </style>
 </helmet>
-<div style="width: 1600px; height: 1300px; box-sizing: border-box; padding: 72px 80px; background: #F3F3F1; font-family: Inter, system-ui, sans-serif; color: #1D1D1F; display: flex; flex-direction: column; gap: 48px">
+<div style="width: 1600px; height: 1160px; box-sizing: border-box; padding: 72px 80px; background: #F3F3F1; font-family: Inter, system-ui, sans-serif; color: #1D1D1F; display: flex; flex-direction: column; gap: 48px">
 
   <header style="display: flex; justify-content: space-between; align-items: flex-end; gap: 40px">
     <div style="display: flex; flex-direction: column; gap: 12px">
-      <p style="margin: 0; font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #5C5C61">Concept · the deck for a Mac mini, or any board</p>
+      <p style="margin: 0; font-size: 14px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #5C5C61">Concept · one slab, modular underneath</p>
       <h1 style="margin: 0; font-size: 64px; line-height: 1; font-weight: 700; letter-spacing: -0.03em">Deck One</h1>
-      <p style="margin: 0; font-size: 20px; line-height: 1.45; color: #4A4A4F; max-width: 860px">The thin-laptop keyboard and a properly usable trackpad in one light aluminium slab. A swappable spine on the back decides what it is: a wireless deck, a wired deck, or a computer with a board inside.</p>
+      <p style="margin: 0; font-size: 20px; line-height: 1.45; color: #4A4A4F; max-width: 860px">The thin-laptop keyboard and trackpad in one light slab with its own battery. Nothing hangs off it: modules slide into flush bays underneath, and the palm rest swaps for different hands. Compute lives in the Spine, a separate box on one USB-C cable.</p>
     </div>
-    <p style="margin: 0; font-size: 14px; color: #5C5C61; text-align: right; line-height: 1.5">Top view · 1 : 3.4 scale<br>{{finish}} · {{spine}} spine</p>
+    <p style="margin: 0; font-size: 14px; color: #5C5C61; text-align: right; line-height: 1.5">Top view · 1 : 3.4 scale<br>{{finish}} · {{fasciaName}} · {{palmName}} palm rest</p>
   </header>
 
   <div style="display: flex; gap: 56px; align-items: flex-start">
@@ -31,29 +31,9 @@ a{color:#3a3a3f}a:hover{color:#1d1d1f}
     <section style="display: flex; flex-direction: column; gap: 14px">
       <div style="display: flex; align-items: center; gap: 18px">
 
-        <div role="img" aria-label="Top view: a silver aluminium deck with a black laptop-style keyboard, a trackpad centred below it, and a removable spine module along the back edge" style="width: 912px; border-radius: 22px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 36px 70px -30px rgba(0,0,0,0.38), 0 10px 20px -12px rgba(0,0,0,0.25)">
+        <div role="img" aria-label="Top view: a silver aluminium deck with a black laptop-style keyboard, and a swappable front palm rest below it" style="width: 912px; border-radius: 22px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 36px 70px -30px rgba(0,0,0,0.38), 0 10px 20px -12px rgba(0,0,0,0.25)">
 
-          <div style="height: {{spineH}}px; box-sizing: border-box; padding: 0 38px; background: linear-gradient(180deg, {{c.bodyTop}} 0%, {{c.spine}} 100%); box-shadow: 0 1px 0 {{c.rim}} inset; display: flex; align-items: center; justify-content: space-between">
-            <sc-if value="{{isCompute}}" hint-placeholder-val="{{ false }}">
-              <div style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 32px">
-                <div style="width: 300px; height: 120px; border-radius: 10px; background: repeating-linear-gradient(90deg, {{c.vent}} 0px, {{c.vent}} 2px, transparent 2px, transparent 7px); opacity: 0.9"></div>
-                <div style="width: 255px; height: 150px; box-sizing: border-box; border: 1.5px dashed {{c.mark}}; border-radius: 8px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 12px">
-                  <span style="font-size: 12px; line-height: 1.4; font-weight: 500; color: {{c.markText}}">Board bay under the lid<br>85 × 56 mm, standard mounting holes</span>
-                </div>
-                <div style="width: 200px; height: 120px; border-radius: 10px; background: repeating-linear-gradient(90deg, {{c.vent}} 0px, {{c.vent}} 2px, transparent 2px, transparent 7px); opacity: 0.9"></div>
-              </div>
-            </sc-if>
-            <sc-if value="{{isSlim}}" hint-placeholder-val="{{ true }}">
-              <div style="width: 100%; display: flex; align-items: center; justify-content: space-between">
-                <span style="font-size: 11px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: {{c.markText}}">{{spineLabel}}</span>
-                <span style="width: 6px; height: 6px; border-radius: 50%; background: {{c.led}}"></span>
-              </div>
-            </sc-if>
-          </div>
-
-          <div style="height: 2px; background: {{c.seam}}"></div>
-
-          <div style="height: 664px; box-sizing: border-box; padding: 30px 38px 20px; display: flex; flex-direction: column; align-items: center; gap: 16px; background: linear-gradient(180deg, {{c.bodyTop}} 0%, {{c.body}} 100%)">
+          <div style="height: 366px; box-sizing: border-box; padding: 30px 38px 0; display: flex; flex-direction: column; align-items: center; background: linear-gradient(180deg, {{c.bodyTop}} 0%, {{c.body}} 100%); box-shadow: 0 1px 0 {{c.rim}} inset">
 
             <div style="width: 836px; box-sizing: border-box; padding: 8px; border-radius: 10px; background: {{c.well}}; box-shadow: 0 1px 2px rgba(0,0,0,0.16) inset; display: flex; flex-direction: column; gap: 7px">
               <sc-for list="{{rows}}" as="row" hint-placeholder-count="6">
@@ -138,13 +118,27 @@ a{color:#3a3a3f}a:hover{color:#1d1d1f}
               </sc-for>
             </div>
 
-            <div style="width: 420px; height: 270px; border-radius: 12px; background: {{c.pad}}; box-shadow: 0 0 0 1px {{c.padEdge}} inset, 0 1px 2px rgba(0,0,0,0.06) inset"></div>
+          </div>
+
+          <div style="height: 2px; background: {{c.seam}}"></div>
+
+          <div style="height: 296px; position: relative; background: {{f.bg}}">
+            <sc-if value="{{isStandard}}" hint-placeholder-val="{{ true }}">
+              <div style="position: absolute; left: 246px; top: 8px; width: 420px; height: 270px; border-radius: 12px; background: {{f.pad}}; box-shadow: 0 0 0 1px {{f.padEdge}} inset"></div>
+            </sc-if>
+            <sc-if value="{{isBig}}" hint-placeholder-val="{{ false }}">
+              <div style="position: absolute; left: 216px; top: 21px; width: 480px; height: 9px; border-radius: 5px; background: {{f.ridge}}; box-shadow: 0 1px 0 rgba(255,255,255,0.35) inset, 0 1px 2px rgba(0,0,0,0.18)"></div>
+              <div style="position: absolute; left: 276px; top: 48px; width: 360px; height: 228px; border-radius: 11px; background: {{f.pad}}; box-shadow: 0 0 0 1px {{f.padEdge}} inset"></div>
+            </sc-if>
+            <sc-if value="{{isRest}}" hint-placeholder-val="{{ false }}">
+              <p style="position: absolute; left: 0; right: 0; top: 136px; margin: 0; text-align: center; font-size: 13px; letter-spacing: 0.04em; color: {{f.note}}">plain palm rest · no trackpad</p>
+            </sc-if>
           </div>
         </div>
 
-        <div style="width: 70px; height: {{totalH}}px; display: flex; align-items: center; gap: 10px">
+        <div style="width: 70px; height: 666px; display: flex; align-items: center; gap: 10px">
           <div style="width: 1px; height: 100%; background: #9A9AA0"></div>
-          <span style="font-size: 14px; font-weight: 600; color: #4A4A4F; white-space: nowrap">{{depthMm}} mm</span>
+          <span style="font-size: 14px; font-weight: 600; color: #4A4A4F; white-space: nowrap">221 mm</span>
         </div>
       </div>
 
@@ -157,34 +151,35 @@ a{color:#3a3a3f}a:hover{color:#1d1d1f}
 
     <section style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 32px; padding-top: 8px">
       <div style="display: flex; flex-direction: column; gap: 8px">
-        <h2 style="margin: 0; font-size: 20px; font-weight: 600">Made to sit with a Mac mini</h2>
-        <p style="margin: 0; font-size: 16px; line-height: 1.5; color: #4A4A4F">Same bead-blasted silver aluminium and soft corners, so the two look like one set on the desk.</p>
+        <h2 style="margin: 0; font-size: 20px; font-weight: 600">One slab, nothing hanging off</h2>
+        <p style="margin: 0; font-size: 16px; line-height: 1.5; color: #4A4A4F">Built-in battery, Bluetooth to three devices or USB-C. Pick it up and type on the sofa, the desk or your lap.</p>
       </div>
       <div style="display: flex; flex-direction: column; gap: 8px">
-        <h2 style="margin: 0; font-size: 20px; font-weight: 600">A trackpad you can live on</h2>
-        <p style="margin: 0; font-size: 16px; line-height: 1.5; color: #4A4A4F">140 × 90 mm glass: room for four-finger swipes and long drags, without making the deck too deep to carry.</p>
+        <h2 style="margin: 0; font-size: 20px; font-weight: 600">Modular underneath</h2>
+        <p style="margin: 0; font-size: 16px; line-height: 1.5; color: #4A4A4F">Two flush 4 mm bays in the base take an extra battery, a 2.4 GHz receiver, a security key or your own board. It works with both empty.</p>
       </div>
       <div style="display: flex; flex-direction: column; gap: 8px">
-        <h2 style="margin: 0; font-size: 20px; font-weight: 600">Laptop layout, square fingerprint key</h2>
-        <p style="margin: 0; font-size: 16px; line-height: 1.5; color: #4A4A4F">Half-height function row with media keys, inverted-T arrows, and a flat opaque key at top right.</p>
+        <h2 style="margin: 0; font-size: 20px; font-weight: 600">A palm rest for your hands</h2>
+        <p style="margin: 0; font-size: 16px; line-height: 1.5; color: #4A4A4F">The front panel swaps: standard trackpad, a big-hands version with a lower trackpad and a thumb ridge, or a plain wrist rest.</p>
       </div>
       <div style="display: flex; flex-direction: column; gap: 8px">
-        <h2 style="margin: 0; font-size: 20px; font-weight: 600">Swap the spine, change the job</h2>
-        <p style="margin: 0; font-size: 16px; line-height: 1.5; color: #4A4A4F">The back edge is a magnetic connector carrying power and USB. Clip on a battery, a cable, or a board bay for a Raspberry Pi-size computer.</p>
+        <h2 style="margin: 0; font-size: 20px; font-weight: 600">Made for sweaty hands too</h2>
+        <p style="margin: 0; font-size: 16px; line-height: 1.5; color: #4A4A4F">Glass or soft-touch polymer palm rests that sweat can't corrode, PBT keycaps, and a sealed layer under the keys.</p>
       </div>
       <div style="display: flex; flex-direction: column; gap: 8px">
-        <h2 style="margin: 0; font-size: 20px; font-weight: 600">Light enough to carry</h2>
-        <p style="margin: 0; font-size: 16px; line-height: 1.5; color: #4A4A4F">Target under 500 g with the battery spine. Fits a 13-inch laptop sleeve.</p>
+        <h2 style="margin: 0; font-size: 20px; font-weight: 600">Compute lives elsewhere</h2>
+        <p style="margin: 0; font-size: 16px; line-height: 1.5; color: #4A4A4F">The Spine is a separate Mac mini-size box on one USB-C cable, with the board, storage and ports.</p>
       </div>
     </section>
   </div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props='{"finish":{"editor":"enum","options":["Silver","Space Black","Space Grey","Gold"],"default":"Silver"},"spine":{"editor":"enum","options":["Battery","Cable","Compute"],"default":"Battery"},"$preview":{"width":1600,"height":1300}}'>
+<script type="text/x-dc" data-dc-script data-props='{"finish":{"editor":"enum","options":["Silver","Space Black","Space Grey","Gold"],"default":"Silver"},"fascia":{"editor":"enum","options":["Standard","Big hands","Wrist rest"],"default":"Standard"},"palm":{"editor":"enum","options":["Aluminium","Glass","Soft-touch"],"default":"Aluminium"},"$preview":{"width":1600,"height":1160}}'>
 class Component extends DCLogic {
   renderVals() {
     var finish = this.props.finish ?? 'Silver';
-    var spine = this.props.spine ?? 'Battery';
+    var fascia = this.props.fascia ?? 'Standard';
+    var palm = this.props.palm ?? 'Aluminium';
     var u = 50, g = 7, p = u + g;
     var W = function (n) { return Math.round((n * p - g) * 10) / 10; };
     var rowW = W(14.5);
@@ -258,20 +253,27 @@ class Component extends DCLogic {
       { isKey: false, isFn: false, isArrows: true, w: W(3) }
     ];
 
-    var spineH = spine === 'Compute' ? 198 : (spine === 'Cable' ? 30 : 42);
-    var totalH = spineH + 2 + 664;
+    var soft = { 'Silver': '#C4C5C8', 'Space Black': '#1E1F21', 'Space Grey': '#5E5F63', 'Gold': '#D6BFAB' };
+    var dark = finish === 'Space Black' || finish === 'Space Grey';
+    var f;
+    if (palm === 'Glass') {
+      f = { bg: 'linear-gradient(180deg, #2B2D31 0%, #1B1C1F 100%)', pad: 'rgba(255,255,255,0.03)', padEdge: 'rgba(255,255,255,0.16)', ridge: '#3A3C41', note: '#A9AAB0' };
+    } else if (palm === 'Soft-touch') {
+      f = { bg: soft[finish] || soft['Silver'], pad: c.pad, padEdge: c.padEdge, ridge: dark ? '#2C2D30' : '#AEAFB3', note: dark ? '#B4B5BA' : '#4A4B50' };
+    } else {
+      f = { bg: 'linear-gradient(180deg, ' + c.body + ' 0%, ' + c.body + ' 100%)', pad: c.pad, padEdge: c.padEdge, ridge: c.well, note: dark ? '#D2D3D7' : '#4A4B50' };
+    }
 
     return {
       c: c,
+      f: f,
       unit: u,
       finish: finish,
-      spine: spine,
-      isCompute: spine === 'Compute',
-      isSlim: spine !== 'Compute',
-      spineLabel: spine === 'Cable' ? 'Cable spine · USB-C' : 'Battery spine · Bluetooth',
-      spineH: spineH,
-      totalH: totalH,
-      depthMm: Math.round(totalH / 3),
+      fasciaName: fascia.toLowerCase() + ' fascia',
+      palmName: palm.toLowerCase(),
+      isStandard: fascia === 'Standard',
+      isBig: fascia === 'Big hands',
+      isRest: fascia === 'Wrist rest',
       rows: [
         { h: 27, keys: fnRow },
         { h: 50, keys: numRow },

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="380.0mm" height="287.0mm" viewBox="0 0 380.0 287.0" role="img" aria-label="Deck One keyboard underside">
+<title>Deck One keyboard underside</title>
+<defs><linearGradient id="alu" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E6E7E9"/><stop offset="1" stop-color="#D0D1D4"/></linearGradient></defs>
+<rect width="380.0" height="287.0" fill="#FFFFFF"/>
+<text x="26.00" y="12.00" font-size="4.4" fill="#1D1D1F" text-anchor="start" font-weight="700" font-family="Inter, Helvetica, Arial, sans-serif">Deck One keyboard · underside (seen from below, back edge at top)</text>
+<text x="26.00" y="18.00" font-size="3.0" fill="#5C5C61" text-anchor="start" font-weight="500" font-family="Inter, Helvetica, Arial, sans-serif">True scale, mm. Bays are flush, with magnetic covers; the deck works with both bays empty.</text>
+<rect x="26.0" y="26.0" width="304.0" height="221.0" rx="7.3" fill="#D7D8DB" stroke="#B8B9BD" stroke-width="0.3"/>
+<rect x="48.0" y="38.0" width="120.0" height="50.0" rx="3" fill="#C9CACE" stroke="#8A8A90" stroke-width="0.4"/>
+<circle cx="95.50" cy="43.0" r="0.9" fill="#B08D57"/>
+<circle cx="100.50" cy="43.0" r="0.9" fill="#B08D57"/>
+<circle cx="105.50" cy="43.0" r="0.9" fill="#B08D57"/>
+<circle cx="110.50" cy="43.0" r="0.9" fill="#B08D57"/>
+<circle cx="115.50" cy="43.0" r="0.9" fill="#B08D57"/>
+<circle cx="120.50" cy="43.0" r="0.9" fill="#B08D57"/>
+<text x="108.00" y="63.50" font-size="4.0" fill="#1D1D1F" text-anchor="middle" font-weight="700" font-family="Inter, Helvetica, Arial, sans-serif">Bay A</text>
+<text x="108.00" y="69.00" font-size="2.6" fill="#5C5C61" text-anchor="middle" font-weight="500" font-family="Inter, Helvetica, Arial, sans-serif">120 × 50 × 4 mm · 6 pogo pins</text>
+<rect x="188.0" y="38.0" width="120.0" height="50.0" rx="3" fill="#C9CACE" stroke="#8A8A90" stroke-width="0.4"/>
+<circle cx="235.50" cy="43.0" r="0.9" fill="#B08D57"/>
+<circle cx="240.50" cy="43.0" r="0.9" fill="#B08D57"/>
+<circle cx="245.50" cy="43.0" r="0.9" fill="#B08D57"/>
+<circle cx="250.50" cy="43.0" r="0.9" fill="#B08D57"/>
+<circle cx="255.50" cy="43.0" r="0.9" fill="#B08D57"/>
+<circle cx="260.50" cy="43.0" r="0.9" fill="#B08D57"/>
+<text x="248.00" y="63.50" font-size="4.0" fill="#1D1D1F" text-anchor="middle" font-weight="700" font-family="Inter, Helvetica, Arial, sans-serif">Bay B</text>
+<text x="248.00" y="69.00" font-size="2.6" fill="#5C5C61" text-anchor="middle" font-weight="500" font-family="Inter, Helvetica, Arial, sans-serif">120 × 50 × 4 mm · 6 pogo pins</text>
+<rect x="48.0" y="94.0" width="260.0" height="48.0" rx="3" fill="none" stroke="#8A8A90" stroke-width="0.4" stroke-dasharray="2 1.4"/>
+<text x="178.00" y="119.00" font-size="2.8" fill="#5C5C61" text-anchor="middle" font-weight="500" font-family="Inter, Helvetica, Arial, sans-serif">built-in battery, inside the frame · 260 × 48 × 3.5 mm</text>
+<line x1="26.0" y1="148.0" x2="330.0" y2="148.0" stroke="#8A8A90" stroke-width="0.5"/>
+<rect x="87.0" y="153.0" width="18" height="4" rx="2" fill="#A9AAAE"/>
+<rect x="251.0" y="153.0" width="18" height="4" rx="2" fill="#A9AAAE"/>
+<text x="178.00" y="156.20" font-size="2.6" fill="#5C5C61" text-anchor="middle" font-weight="500" font-family="Inter, Helvetica, Arial, sans-serif">fascia release latches</text>
+<circle cx="40.0" cy="40.0" r="5" fill="#9A9BA0"/>
+<circle cx="316.0" cy="40.0" r="5" fill="#9A9BA0"/>
+<circle cx="40.0" cy="233.0" r="5" fill="#9A9BA0"/>
+<circle cx="316.0" cy="233.0" r="5" fill="#9A9BA0"/>
+<text x="316.00" y="225.00" font-size="2.6" fill="#5C5C61" text-anchor="end" font-weight="500" font-family="Inter, Helvetica, Arial, sans-serif">rubber feet ×4</text>
+<rect x="290.0" y="24.8" width="9" height="2.4" rx="1.2" fill="#5A5B5F"/>
+<text x="294.50" y="23.00" font-size="2.4" fill="#5C5C61" text-anchor="middle" font-weight="500" font-family="Inter, Helvetica, Arial, sans-serif">USB-C</text>
+<rect x="56.0" y="25.0" width="7" height="2" rx="0.6" fill="#5A5B5F"/>
+<text x="59.50" y="23.00" font-size="2.4" fill="#5C5C61" text-anchor="middle" font-weight="500" font-family="Inter, Helvetica, Arial, sans-serif">power</text>
+<g stroke="#8A8A90" stroke-width="0.3"><line x1="26.0" y1="259.0" x2="330.0" y2="259.0"/><line x1="26.0" y1="257.0" x2="26.0" y2="261.0"/><line x1="330.0" y1="257.0" x2="330.0" y2="261.0"/></g><rect x="167.8" y="256.4" width="20.4" height="5.2" fill="#FFFFFF"/><text x="178.00" y="260.20" font-size="3.4" fill="#5C5C61" text-anchor="middle" font-weight="600" font-family="Inter, Helvetica, Arial, sans-serif">304 mm</text>
+<g stroke="#8A8A90" stroke-width="0.3"><line x1="340.0" y1="26.0" x2="340.0" y2="247.0"/><line x1="338.0" y1="26.0" x2="342.0" y2="26.0"/><line x1="338.0" y1="247.0" x2="342.0" y2="247.0"/></g><text x="344.00" y="137.70" font-size="3.4" fill="#5C5C61" text-anchor="start" font-weight="600" font-family="Inter, Helvetica, Arial, sans-serif">221 mm</text>
+</svg>
